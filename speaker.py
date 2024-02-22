@@ -1,6 +1,7 @@
 import pyttsx3
 import threading
 import time
+from datetime import datetime
 
 
 class Speaker:
@@ -24,7 +25,7 @@ class Speaker:
                 self.lock.release()
 
                 engine = pyttsx3.init()        
-                print("speaker: ", text)
+                print(datetime.now().strftime("%H:%M:%S"), "speaker: ",  text)
                 engine.say(text)
                 engine.runAndWait()
             else:
