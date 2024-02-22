@@ -19,6 +19,15 @@ class Reminder:
                 'tool': self, 
                 'function': 'remind_go_pack_up'
                 })
+        
+        self.scheduler.schedule({
+            'type': 'repeat', 
+            'interval': 1200,
+            'tool': self,
+            'function': 'speak_give_rest_to_eyes'
+            })
+
+
 
     def speak_give_rest_to_eyes(self):
         self.speaker.speak("sir, kindly look at some far away object for 20 seconds")

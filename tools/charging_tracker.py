@@ -6,15 +6,17 @@ class ChargingTracker:
         self.scheduler = system['scheduler']
         self.speaker = system['speaker']
 
-        system['scheduler'].schedule({'type': 'repeat', 'interval': 60, 'tool': self, 'function': 'check_charge_state'})
-        system['options'].append({'name': 'battery percent ?', 'tool': self, 'function': 'show_power_percent'})
-
-
-        self.scheduler.schedule({
-            'type': 'repeat', 
-            'interval': 1200,
-            'tool': self,
-            'function': 'preset_work'
+        system['scheduler'].schedule({
+            'type': 'repeat',
+            'interval': 60, 
+            'tool': self, 
+            'function': 'check_charge_state'
+            })
+        
+        system['options'].append({
+            'name': 'battery percent ?',
+            'tool': self, 
+            'function': 'show_power_percent'
             })
 
 
